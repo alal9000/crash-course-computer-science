@@ -1,0 +1,443 @@
+-1 kilobyte is 1024 bytes
+
+-1 megabyte is 1024 kb
+
+-1 giga byte is 1024 megabytes
+
+
+
+-32 and 64 bit computers operate in chunks of 32 and 64 bits
+
+-computers these days use 32 bit color graphics
+
+-the first bit it used to represent the sign the rest of the 31 bits is used to represent the number
+
+-computers must label locations in their memory known as addresses in order to store and retrieve values
+
+-interoperability: the ability to universally exchange information
+
+-unicode uses 16 bits while ascii uses 8
+
+-movies, sounds and music under the hood of a computer consists on long sequences of bits
+
+-computational operations of a computer is handled by the arithmetic and logic unit (ALU) which is a critical component of a computers CPU. The ALU is responsible for executing arithmetic operations such as addition, subtraction, multiplication and division as well as logic operations such as AND, OR, NOT. The ALU is the mathematical brain and responsible for computation, so basically everything uses it.
+
+-an ALU is really two units in one. The arithmetic unit and the logic unit.
+
+-logic gates: AND, OR, NOT, XOR - these can be abstracted away into its own components such as a half adders
+
+-half adder takes two input and outputs a sum and a carry.
+
+-a full adder takes 3 bits of input and outputs a sum and carry
+
+-we can build a full adder using half adders
+
+-we can add two 8 bit binary numbers together using an 8bit ripple carry adder
+
+-the last full adder in an 8 bit ripple carry adder has a carry out, if there is a carry into the 9th bit it means there is overflow which means the number is to be to be stored in 8 bits
+
+-logic gates are constructed using transistors
+
+-the ALU logic unit performs logical operations like AND, OR, NOT and simple numerical tests like checking if a number is negative
+
+-an ALU can be abstracted away using the V symbol
+
+-the purpose of computer memory is to store results and values
+
+-primary memory: volatile memory used for immediate processing and has fast access speed from the computers CPU. It is temporary and lost when the power is turned on ie: RAM and cache memory.
+
+-secondary memory: non volatile memory is slower in terms of access speed but can be stored in large quantities on HDD or SSD and is persistent even when the power is turned off.
+
+-latches are a circuit used to store a single bit of information by remembering a previous output value
+
+-the action of putting data into memory is called writing and the action of getting data out is called reading
+
+-gated latch - has a data input and write enable input instead of a set and reset input to make things easier, a gated latch can remember a single bit of information.
+
+-a gated latch can hold a single bit of data while a group of latches also called a register can remember a decimal number depending on its width
+
+-a register can hold (remember) a single number - the number of bits in a register is called its width. Modern computers have registers which are 64 bits wide
+
+-to convert from a memory address into something that selects the right row or column we need another component called a multiplexer
+
+-with the existence of 0, this takes up an extra element
+
+-SRAM or static ram uses latches
+
+-registers: small linear chunks of memory useful for storing a single value. They consist of latches (usually 8) laid out next to each other.
+
+-RAM: Random access memory - large bank of memory that can store a lot of numbers located at different addresses. Consists of latches laid out in a grid with multi-plexes used to activate a single latch. This grid layout saves us using a lot of wires compared with registers. A feature of RAM is that we can access any location, at anytime and in a random order.
+
+-the job of a CPU is to execute programs. The components of a CPU is the ALU and memory. 
+
+-programs are made up of a series of individual operations called instructions. If the instructions are mathematical like add or subtract then the CPU will configure the ALU to do the mathematical operation. If it is a memory instruction then the CPU will talk to the memory in order to read or write values
+
+-microarchitecture refers to the internal design or organisation of a CPU, including how instructions are executed, data is processed and components are interconnected
+
+-memory registers are used internally in a CPU to temporarily store and manipulate values. They are small high speed storage locations within the CPU.
+
+-programs can be stored in memory just like binary values (data)
+
+-instruction address register: keeps track of where we are in the program. It is an internal CPU register which stores the memory address of the current instruction
+
+-instruction register: stores the current instruction - again it is another internal CPU register.
+
+-we often have multiple registers inside a CPU ie: register A, register B, register C, register D, instruction address register, instruction register.
+
+-the first phase of a CPUs operation is called the fetch phase - this is where we retrieve our first instruction. The next phase is the decode phase where we figure out what the instruction is that is retrieved from memory so we can execute it (ie: run it) - this is done through the opcode (operation code) which is a prefixed binary value ie: first four bits in an 8bit binary value. This opcode could be for example ‘LOAD_A’ which loads a value from RAM into register A.
+
+-instructions are decoded and interpreted by a control unit prior to the execute phase. This control unit is built out of logic gates and checks if the given opcode maps to a corresponding instruction on our instruction table - it returns 1 or true if the check is successful.
+
+-once the check is done from the control unit, we know the instruction we are dealing with and can go ahead and execute that instruction - this is the beginning of the execute phase
+
+-at the end of the execute phase for the current instruction, we turn off all our wires (ie: write, data, checking) increment the value at our instruction address register. Once the increment is done in this register we have completed the execution phase for this instruction.
+
+-the control unit is comparable to a conductor of an orchestra, directing all the different parts of a CPU.
+
+-fetch / decode / execute cycles are being constantly repeated by a CPU
+
+-decoding means transforming from one form to another
+
+-in order to execute a set of instructions (ie: a program) a CPU goes through a series of fetch / decode / execute phases
+
+-the responsibility for keeping the CPU transitioning through its fetch / decode and execute phases falls to a component known as the clock. The clock triggers an electrical signal at a precise and regular interval. This signal is used by the control unit to advance the internal operation of the CPU, keeping everything in lock-step.
+
+-the speed at which a CPU can carry out each step of the fetch / decode / execute cycle is called its clock speed. Clock speed refers to the speed at which a CPUs clock generates pulses, and each pulse typically represents one complete cycle of the fetch / decode / execute process.
+
+-clock speed is measured in hertz a unit of frequency - 1 hertz means one cycle per second
+
+-modern processors can increase or decrease their clock speed based on demand which is called dynamic frequency scaling. 
+
+-Ram lies outside the CPU as its own component and they communicate with each other using address, data and enable wires.
+
+-the thing that makes a CPU powerful is the fact that it is programmable - if you write a different sequence of instructions then the CPU will perform a different task
+
+-the CPU is a piece of hardware, controlled by easy to modify software.
+
+-we often store both data and instructions in the same memory - there is no difference fundamentally, its all just binary numbers. This is why the	HALT instruction is important because it allows us to separate the two
+
+-JUMP_NEGATIVE, JUMP_IF_EQUAL, JUMP_IF_GREATER are all examples of conditional jumps within processor instructions
+
+-instruction length: how many bits the CPU can support in terms of instructions. Ie: 8, 16, 32 or 64 bit instructions
+
+-immediate values: constant or literal values that are directly specified within the instructions of a computer program. They are called immediate because they are immediately available within the instruction itself, as opposed to being stored in a seperate memory location. These immediate values are typically embedded directly within the machine code instructions themselves and are part of the instruction set architecture (ISA) of the CPU - These values help to address more memory.
+
+-gigahertz (GHz) represents billions of clock cycles per second
+
+-logic gates and ALUs are made up of transistors
+
+-instruction sets for CPUs tend to get larger and larger as fancier CPUs are rolled out, keeping all the old opcodes around for backwards compatibility. 
+
+-RAM is typically a memory module that lies outside the CPU - this means data has to travel to and from the CPU via a data wire called a bus - this can be problematic in terms of getting data to and from the CPU at speeds which keep up with its processing speed. One solution is to put a small piece of RAM right on the CPU called the cache - this speeds up the CPU because it doesn’t have to go to the RAM for subsequent data, it has already be saved on the cache and retrieving it is much faster.
+
+-computer data is often arranged and processed sequentially.
+
+-going to RAM to retrieve data can take upto a dozen clock cycles but reading it from the cache can be done within a single clock cycle
+
+-when data requested is already stored in the cache its called a cache hit and when data requested is not in the cache (and you have to go to RAM) its called a cache miss
+
+-the cache has a special flag for each block of memory its stores called the dirty bit. This is so mismatches from the cache and the memory can be recorded and synced up later. Most often this synchronisation happens when the cache is full, but a new block of memory is being requested by the processor. Before the cache erases the old block to free up space, it checks the dirty bit, if its dirty then the old block is written back to RAM before loading in the new block.
+
+-We can use instruction pipelining to boost CPU performance. This involves running our operations in parallel instead of in a linear / sequential fashion. Its similar to concurrency in program execution
+
+-in a simplified view, the fetch, decode, execute phase of a single instruction takes x3 clock cycles in a linear non-pipelined CPU.
+
+-out of order execution: Dynamically reorder instructions with dependencies to minimise stalls and keep the pipeline moving. This is done in the case where we might be dealing with stale data in the context of CPU pipelining ie: we could fetch data that the currently executing instruction is just about to modify, this would end up with the old data in the pipeline.   
+
+-pipelining is very effective and almost all processes implement it today
+
+-modern CPUs have a feature called branch prediction	which guesses which way a value will go based on calculated guessing. This is because conditional jumps can cause long delays when the CPU has to wait for an outcome (value of the condition) to be decided.
+
+-in an ideal case pipelining lets you complete one instruction every clock cycle but then superscalar processors came along which can execute more than one instruction per clock cycle
+
+-many modern processors will have 4, 8 or more identical ALUs so they can execute many mathematical instructions all in parallel.
+
+-another way to increase CPU performance is to run several streams of instructions at once with multi-core processors. This means there are multiple independent	processing units inside a single chip ie: dual or quad core processors. The cores can share resources like cache allowing the cores to work together on shared computations
+
+-computers can even have multiple independent CPUs, these are seen in high end computers like those in the YouTube data centre. 
+
+-sequences of operations (ie: CPU instructions) is a computer program. A program is essentially a set of instructions or a sequence of operations that a computer’s central processing unit (CPU) follows to perform a specific task or computation.
+
+-programs need to be loaded into a computers memory
+
+-programs used to be stored as a physical plugboard of wires instead of inside the computers electronic memory
+
+-unifying the program and data into a single shared memory is called the von human architecture
+
+-in the past programs were stored as stacks of punch cards
+
+-punched paper tape was a close cousin to punch cards but continuous instead of being on individual cards
+
+-so plug boards, punched paper tape and punched cards was used to program computers
+
+-the term ‘encoded’ in computing refers to the representation of data in a specific format. Encoding involves converting information or data from one form to another according to a set of rules or algorithms. Ie: I can encode the decimal number 14 into binary by transforming it into 00001110. Also mapping numbers to letters in ascii is a form of encoding (and its reverse decoding).
+
+-binary is the language computer processors natively speak - its called machine language or machine code
+
+-assembler (program): read in text based instructions and assemble them into the corresponding binary instructions automatically.
+
+-in general, each assembly language instruction converts directly to a corresponding machine instruction - a one to one mapping, so its inherently tied to the underlying hardware.
+
+-a single line of a high level programming language might result in dozens of instructions being executed by the CPU.
+
+-compiler: a specialised program that transforms source code written in a programming language to a low level language like assembly or binary machine code.
+
+-write once run anywhere: the compiler for the language can accept the same source code everywhere, its just the compiler is hardware specific.
+
+-machine code and assembly is CPU specific
+
+-programming languages were developed to abstract away many of the low level details
+
+-statements in a computer program are an individual complete thought ie: a = 5 (assignment statement)
+
+-the set of rules that govern the structure and composition of statements in a language is called syntax
+
+-a program which is a list of instructions is a bit like a recipe
+
+-when programming we often have to initialise our variables - that is set their initial value
+
+-to repeat some statements many times we need to create a conditional loop, one way is a while statement or while loop. This loops a piece of code while a condition is true
+
+-when you see an assignment statement, you always start by figuring out the right side of the equal sign first
+
+-instead of being a condition controlled loop that can repeat forever until the condition is false like the while loop, a for loop is count controlled, it repeats a specific number of times
+
+-functions perform some task in a computer program. They help us to build and maintain more modular and reusable code which is easier to understand.
+
+-return statements enable values to be returned to the function that was called, so the part of the program that called the function can use it. This allows the result of the functions computation to be used or processed further in the calling code.
+
+-functions are the building blocks of programs - its not feasible to write one long list of statements inside a single file, it would be millions of lines long and impossible to comprehend, that’s why we use functions. Software consists	of many smaller functions, each of which is responsible for different features.
+
+-in modern programming its uncommon to see functions longer than say 100 lines of code, because by then there is probably something that should be pulled out and made into its own function
+
+-modern programming languages come with huge bundles of pre written functions called libraries which we can leverage so we dont have to write the functions ourselves.
+
+-data structures are used to store and organise data so it can be manipulated inside programs
+
+-api: someone else’s information, that they make available for us to access and utilise
+
+-statements in programming: assignment, ifs and loops
+
+-algorithm: generally speaking, the fewer steps to compute the better the algo - although sometimes we care about other factors such as how much memory it uses
+
+-complexity of an algorithm (computational complexity): the relationship of input size to the number of steps the algorithm takes to run. It gives you an approximation of how fast or slow the algorithm is going to be. The complexity of an algo is often expressed in big O notation.
+
+-splitting in half repeatedly has a logarithmic relationship with the number of items ie: log(base2) 8 = 3 - 8 can be split 3 times, 4, 2, 1
+
+-a graph is a network of nodes connected by lines - as with sorting there are numerous graph search algos (to find the shortest path from point a - point b) with different pros and cons.
+
+-O(n^2) - is not a good computational complexity because it cannot scale to big problems. O(nlogn) or n times the log of n is much better when it comes to scaling - this is the complexity used for merge sort, so its an ideal algo for big inputs (items to be sorted in this case).
+
+-data structures: how data is stored and organised in the computer memory. We store it in different ways so it can be efficiently retrieved, read and written to.
+
+-arrays are a series of values stored in memory in contiguous memory locations
+
+-we use square bracket syntax along with an index to denote array access ie: array[0]
+
+-strings in memory end with the null character ie: the binary value zero, this is to denote the end of a string, otherwise the compiler and string functions would not know where the string ends
+
+-a matrix, grid, or 2d array is an array of arrays. To access a value we need to provide two indexes ie: a = j[2][1]
+
+-groups of variables can be bundled together into a data structure called a struct. Structs provide a way to encapsulate related data into a single unit, improving code organisation and readability. In C++ and swift we can have functions or methods inside structs but not in C.
+
+-a pointer is a special variable that points to a location in memory	
+
+-linked list: a flexible data structure that can store many nodes. It does this by having each node point to the next node in the list. Linked lists can be circular which means the last pointer points back to the first node, but it could also be terminated by using a next pointer value of 0 the null value, which would indicate we have reached the end of the list
+
+-unlike an array which size has to be predefined, a linked list can be dynamically extended or shortened by simply changing next pointers.
+
+-queues and stacks are built on top of linked lists.
+
+-queue operations = dequeue: remove from the front of the queue, enqueue - add to the back of the que.
+
+-stack operations = push: add to top of the stack, pop: remove from top of stack.
+
+-linked list consists of structs called nodes which have a variable (value) and a pointer (memory address to next node) - if we add another pointer to this struct we can build trees. One pointer would reference nextLeft and the other nextRight
+
+-arrays, trees and linked lists are used in many algorithms
+
+-trees: the top most node is called the root and any nodes that hang from other nodes are called children nodes. Nodes above children are called parent nodes. Any nodes that have no children are called leaf nodes.
+
+-binary tree: nodes can have a max of two children
+
+-an important property of trees is that there is a one way path from roots to leaves
+
+-graphs: nodes can have many pointers and generally speaking there is no notion of roots, leaves, children and parents - anything can point to anything
+
+-fundamental data structures used in computer science: arrays, linked lists, queues, stacks, hash tables (typically implemented using arrays under the hood), trees, heaps and graphs
+
+-the terms properties and attributes are closely related and often used interchangeably but their usage can change on the context, especially in different programming languages
+
+-There are limits to the ability of computers, no matter how much time or memory you have, there are just some problems that can’t be solved
+
+-encryption: scrambling of text
+
+-turing test: “a computer would deserve to be called intelligent if it could deceive a human into believing that it was human”
+
+-software engineering: tools and practices taken together to write software
+
+The ability to hide complexity and selectively reveal it is the essence of OOP.
+
+-code before being complied is just text
+
+-we use readme files to document our code
+
+-beta software: software that’s mostly complete but not 100% fully tested (alpha comes before and is tested internally).
+
+-photolithography: using light to transfer complex patterns to a material like a semi-conductor
+
+-operating systems are just programs
+
+-OS was implemented as intermediaries between software programs and hardware peripherals - they provided a software abstraction through APIs called device drivers. These allowed programmers to talk to common input and output hardware like printers, speakers, mice, keyboards
+
+-batch loading: loading programs into a computer automatically and sequentially
+
+-when multiple programs or processes share a cpu, each program is allocated its own virtual address space  and the OS is responsible for managing this allocation
+
+-dynamic memory allocation: programs are allowed to have flexible memory sizes. Programs are able to request and release memory dynamically	during program execution (runtime). 
+
+-memory protection: because programs have isolated memory they can’ affect other memory blocks being used by other programs
+
+-the earliest computer storage was punched cards and its close cousin, punched paper tape
+
+-data about data is called metadata
+
+-it doesn’t matter if its a text file, WAV or BMP - under the hood they are all the same, long lists of numbers, stored as binary on a storage device. Its the file format that tells the computer and corresponding software how to process and interpret these binary numbers ie: text file - binary data to represent characters as per ascii, wav file - binary data represents audio sample values and BMP image file - binary data represents pixels values.
+
+-directory file: records where other files are located in a file system - its most often stored in the front of storage at location 0.
+
+-files being stored in the file system non contiguously is called fragmentation - but in modern file system the OS uses defragmentation to copy the files so they are stored contiguously
+
+-older file formats like wav, bitmap and txt are not very efficient so their more compressed formats are used more widely
+
+-we need to compress to store and transmit more data than we other would be able to
+
+-compression: squeezes data into a smaller size
+
+-run length encoding: reduces repeated and redundant	 information by taking advantage of the fact there is runs of identical values in a file ie: in an image we might have 7 pixels of the same colour value, instead od redundant repeating we can store the number of how many times the pixel is repeated 
+
+-lossless compression: the compressed data is identical to the original before compression, bit for bit, we don’t lose anything
+
+-another form of lossless compression is dictionary coding  - it involves mapping codes in a dictionary type structure to frequently occurring patterns in the data 
+
+-lossy compression: removing unessesary or less important data, especially that which cannot be easily detected by human perception.
+
+-perceptual coding: discarding or reducing precision in a manner that aligns  with human perception 
+
+-video’s can compress through temporal redundancy: pixels between frames that don’t change don’t need to be re-encoded
+
+-a buffer like a middleman for data
+
+-computers reserve a special region of memory for pixel data, called the frame buffer
+
+-a graphics card maps data to visual representations on a screen
+
+-software refers to a set of instructions, programs or data that tell a computer how to perform specific tasks or functions. They are a set of instructions that run on a computers hardware
+
+-event driven programming: code can fire at anytime in any order in response to events
+
+-3D projection: flatting 3d co-ordinates (x,y,z) onto a 2d plane - this is because computer screens are 2d not 3d.
+
+-anti-aliasing: feathering the edges of pixels with softer colours then the main image colour to reduce jagged edges in images. Fonts and icons in 2d graphics use antialiasing.
+
+-rounding errors are inherent in floating point computations
+
+-algorithms just mean instructions
+
+-GPU: graphics processing unit - is a special processor for rendering graphics. It optimises graphics rendering by processing in parallel rather than sequentially. This is special hardware just for graphics that can be found on graphics cards inside of your computer along with its corresponding ram
+
+-latency: time it takes for data transfer
+
+-bandwidth: capacity or rate of data transmission
+
+-exponential backoff: computers use this when transmitting data to avoid network congestion
+
+-switches are used to reduce collisions and improve efficiency on the network
+
+-the internet essentially connects a bunch of smaller networks allowing inter-network communication
+
+-message switching: routing data through a series of different stops along the way
+
+-every computer connected to a network gets an IP address. IP stands for internet protocol
+
+-packet switching: chopping up data into packets and passing them along individually along flexible routes with spare capacity
+
+-WAN: wide area network
+
+-a hop in networking is a stop in the journey from getting a data packet from point a to point b - ie from client to server and vice versa
+
+-the internet is a huge distributed network that sends data around in individual packets - packets have to conform to IP or internet protocol
+
+-every program wanting to access the internet will ask its host computers operating system to be given a unique port
+
+-IP gets the packet to the right computer but UDP (user datagram protocol) gets the packet to the right programming running on that computer via the port number
+
+-TCP: Transmission Control Protocol - is more reliable than UDP as it has mechanisms to recover lost packets - its often combined with IP to be TCP / IP.
+
+-when your computer wants to make a connection to website it needs two things. An IP address and a port number ie: 127.211.7.322:80
+
+-DNS: domain name system - is a like a phone book for the internet where it maps IP’s to domain names. When you make a request to a website that request goes to A DNS server (often provided by your ISP) which looks up the address from the domain name inside huge tables, the address then gets returned to your browser which allows you to navigate to the webiste
+
+
+
+-networking has different layers: physical layer - electrical signals transmitted through wires or radio waves transmitted through air for wifi. Data link layer - Mac addresses, collision detection, exponential backoff and similar low level protocols. Network layer - switching and routing technologies. Transport layer ie: UDP, TCP - which is responsible for point to point data transfer. Session layer - open connection for data then close the connection using the transport layer protocols. All of these layers comprise the OSI model or open system interconnection model. Note there is two more layers on top of this which is the presentation and application layer which sits at the top.
+
+-throttling: intentionally given less bandwidth to make data transfer slower
+
+-3 pillars of cyber security: secrecy (authentication like passwords) integrity (pretending to be a user) and availability (ddos attacks)
+
+-brute force attack: computers try all possible combinations
+
+-deterministic: always producing the same predictable result from a given input
+
+-less code the better for security
+
+-sandbox: isolated environment in the OS where an application can run with restricted access to system resources. It has access to its own block of memory that other programs can’t touch.
+
+-virtual machine: simulated computers that live in their own sandbox
+
+-a buffer is a general term for a block of memory reserved for storing data
+
+-buffer overflow attack: memory is rewritten from user input - a program writes more data to a block of memory or buffer than it was allocated to hold.
+
+-sql injection: inputing malicious sql code through form inputs on a website
+
+-security: always assume input coming from the outside to be potentially dangerous and examine, prepare and clean it carefully before using it in your app.
+
+-good servers sanitise data by modifying / removing special symbols before running sql queries
+
+-modern computers use AES (advanced encryption standard)for secure data encryption for protocols such as HTTPS and WPA2.
+
+-we can exchange a shared key through a process known as diffee helmen key exchange - this is an example of symmetric encryption because the key is the same on both sides
+
+-signing: a server encrypts data using their private key
+
+-a servers digital signature is like a unique stamp that only the server has that acts like a 'royal seal' that proves a resource is genuine - this is an example of asymmetric encryption
+
+-key parts of modern cryptography: symmetric encryption, key exchange and public key cryptography
+
+-machine learning: algorithms that give computers the ability to learn from data and then make predictions and decisions
+
+-features form the data input that goes into the training of a ML model ie: wingspan or mass of moths
+
+-labels or classifications are the outputs derived from the features in a data set used to train a ML model ie: emperor moth or luna moth.
+
+-labelled data: feature values and their classification
+
+-machine learning models acertain decision boundries on the data, then put them into a confusion matrix - which is a matrix stating correct and incorrect predictions on the data 
+
+-ML models use decision trees among other algorithms to classify unlabelled data
+
+-artificial neurons: each takes a series of inputs, combines them and emits a signal. Unlike biological neurons, they take numbers in and spit numbers out
+
+-computer vision: computers use kernels to define lines in image processing
+
+-kernal: in image processing is a grid of values which are weights to designed to be applied to pixel values in the actual image to extract features of the input image
+
+-convolution: means multiplying the pixel values by the kernal value and then summing them all to get a value - the result is a outputted image which is convoluted and shows key features like edges etc
+
+-abstraction is the key to building complex systems
+
+-speech synthesis: is the artificial production of human speech by a computer
+
+-as part of the their implementation robots implement feedback control loops
